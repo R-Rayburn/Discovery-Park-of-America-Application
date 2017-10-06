@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9406B9501F86C2BB008F328A /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9406B94F1F86C2BB008F328A /* LibraryCell.swift */; };
+		944593C71F5A05AF000B7FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944593C61F5A05AF000B7FE6 /* AppDelegate.swift */; };
+		944593CC1F5A05AF000B7FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944593CA1F5A05AF000B7FE6 /* Main.storyboard */; };
+		944593D11F5A05AF000B7FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944593CF1F5A05AF000B7FE6 /* LaunchScreen.storyboard */; };
+		944593DC1F5A05AF000B7FE6 /* Discovery_Park_of_AmericaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944593DB1F5A05AF000B7FE6 /* Discovery_Park_of_AmericaTests.swift */; };
+		944593E71F5A05AF000B7FE6 /* Discovery_Park_of_AmericaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944593E61F5A05AF000B7FE6 /* Discovery_Park_of_AmericaUITests.swift */; };
+		94B5BD7E1F62EF800015AB33 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B5BD7D1F62EF800015AB33 /* DescriptionViewController.swift */; };
+		94BA06551F6C249100822402 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA06541F6C249100822402 /* LibraryViewController.swift */; };
+		94BA06591F6C25DE00822402 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA06581F6C25DE00822402 /* Item.swift */; };
+		94BA065B1F6C278C00822402 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA065A1F6C278C00822402 /* ItemStore.swift */; };
+		94C42BE31F5F437400736AC6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C42BE21F5F437400736AC6 /* MapKit.framework */; };
+		94C42BE51F5F479800736AC6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C42BE41F5F479800736AC6 /* MapViewController.swift */; };
+		94C42BE71F5F4B3300736AC6 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C42BE61F5F4B3300736AC6 /* WebViewController.swift */; };
+		94C9BD771F6F13670053655F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C9BD761F6F13670053655F /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		944593D81F5A05AF000B7FE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944593BB1F5A05AF000B7FE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 944593C21F5A05AF000B7FE6;
+			remoteInfo = "Discovery Park of America";
+		};
+		944593E31F5A05AF000B7FE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944593BB1F5A05AF000B7FE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 944593C21F5A05AF000B7FE6;
+			remoteInfo = "Discovery Park of America";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9406B94F1F86C2BB008F328A /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		944593C31F5A05AF000B7FE6 /* Discovery Park of America.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Discovery Park of America.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		944593C61F5A05AF000B7FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		944593CB1F5A05AF000B7FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		944593D01F5A05AF000B7FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		944593D21F5A05AF000B7FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		944593D71F5A05AF000B7FE6 /* Discovery Park of AmericaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Discovery Park of AmericaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		944593DB1F5A05AF000B7FE6 /* Discovery_Park_of_AmericaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discovery_Park_of_AmericaTests.swift; sourceTree = "<group>"; };
+		944593DD1F5A05AF000B7FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		944593E21F5A05AF000B7FE6 /* Discovery Park of AmericaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Discovery Park of AmericaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		944593E61F5A05AF000B7FE6 /* Discovery_Park_of_AmericaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discovery_Park_of_AmericaUITests.swift; sourceTree = "<group>"; };
+		944593E81F5A05AF000B7FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B5BD7D1F62EF800015AB33 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		94BA06541F6C249100822402 /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = ../LibraryViewController.swift; sourceTree = "<group>"; };
+		94BA06581F6C25DE00822402 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
+		94BA065A1F6C278C00822402 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		94C42BE21F5F437400736AC6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		94C42BE41F5F479800736AC6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
+		94C42BE61F5F4B3300736AC6 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		94C9BD761F6F13670053655F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		944593C01F5A05AF000B7FE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94C42BE31F5F437400736AC6 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		944593D41F5A05AF000B7FE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		944593DF1F5A05AF000B7FE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		944593BA1F5A05AF000B7FE6 = {
+			isa = PBXGroup;
+			children = (
+				944593C51F5A05AF000B7FE6 /* Discovery Park of America */,
+				944593DA1F5A05AF000B7FE6 /* Discovery Park of AmericaTests */,
+				944593E51F5A05AF000B7FE6 /* Discovery Park of AmericaUITests */,
+				944593C41F5A05AF000B7FE6 /* Products */,
+				94C42BE11F5F437400736AC6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		944593C41F5A05AF000B7FE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				944593C31F5A05AF000B7FE6 /* Discovery Park of America.app */,
+				944593D71F5A05AF000B7FE6 /* Discovery Park of AmericaTests.xctest */,
+				944593E21F5A05AF000B7FE6 /* Discovery Park of AmericaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		944593C51F5A05AF000B7FE6 /* Discovery Park of America */ = {
+			isa = PBXGroup;
+			children = (
+				944593C61F5A05AF000B7FE6 /* AppDelegate.swift */,
+				94C42BE41F5F479800736AC6 /* MapViewController.swift */,
+				94C42BE61F5F4B3300736AC6 /* WebViewController.swift */,
+				94BA06541F6C249100822402 /* LibraryViewController.swift */,
+				94B5BD7D1F62EF800015AB33 /* DescriptionViewController.swift */,
+				94BA06581F6C25DE00822402 /* Item.swift */,
+				94BA065A1F6C278C00822402 /* ItemStore.swift */,
+				9406B94F1F86C2BB008F328A /* LibraryCell.swift */,
+				944593CA1F5A05AF000B7FE6 /* Main.storyboard */,
+				94C9BD761F6F13670053655F /* Assets.xcassets */,
+				944593CF1F5A05AF000B7FE6 /* LaunchScreen.storyboard */,
+				944593D21F5A05AF000B7FE6 /* Info.plist */,
+			);
+			path = "Discovery Park of America";
+			sourceTree = "<group>";
+		};
+		944593DA1F5A05AF000B7FE6 /* Discovery Park of AmericaTests */ = {
+			isa = PBXGroup;
+			children = (
+				944593DB1F5A05AF000B7FE6 /* Discovery_Park_of_AmericaTests.swift */,
+				944593DD1F5A05AF000B7FE6 /* Info.plist */,
+			);
+			path = "Discovery Park of AmericaTests";
+			sourceTree = "<group>";
+		};
+		944593E51F5A05AF000B7FE6 /* Discovery Park of AmericaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				944593E61F5A05AF000B7FE6 /* Discovery_Park_of_AmericaUITests.swift */,
+				944593E81F5A05AF000B7FE6 /* Info.plist */,
+			);
+			path = "Discovery Park of AmericaUITests";
+			sourceTree = "<group>";
+		};
+		94C42BE11F5F437400736AC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94C42BE21F5F437400736AC6 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		944593C21F5A05AF000B7FE6 /* Discovery Park of America */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 944593EB1F5A05AF000B7FE6 /* Build configuration list for PBXNativeTarget "Discovery Park of America" */;
+			buildPhases = (
+				944593BF1F5A05AF000B7FE6 /* Sources */,
+				944593C01F5A05AF000B7FE6 /* Frameworks */,
+				944593C11F5A05AF000B7FE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Discovery Park of America";
+			productName = "Discovery Park of America";
+			productReference = 944593C31F5A05AF000B7FE6 /* Discovery Park of America.app */;
+			productType = "com.apple.product-type.application";
+		};
+		944593D61F5A05AF000B7FE6 /* Discovery Park of AmericaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 944593EE1F5A05AF000B7FE6 /* Build configuration list for PBXNativeTarget "Discovery Park of AmericaTests" */;
+			buildPhases = (
+				944593D31F5A05AF000B7FE6 /* Sources */,
+				944593D41F5A05AF000B7FE6 /* Frameworks */,
+				944593D51F5A05AF000B7FE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				944593D91F5A05AF000B7FE6 /* PBXTargetDependency */,
+			);
+			name = "Discovery Park of AmericaTests";
+			productName = "Discovery Park of AmericaTests";
+			productReference = 944593D71F5A05AF000B7FE6 /* Discovery Park of AmericaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		944593E11F5A05AF000B7FE6 /* Discovery Park of AmericaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 944593F11F5A05AF000B7FE6 /* Build configuration list for PBXNativeTarget "Discovery Park of AmericaUITests" */;
+			buildPhases = (
+				944593DE1F5A05AF000B7FE6 /* Sources */,
+				944593DF1F5A05AF000B7FE6 /* Frameworks */,
+				944593E01F5A05AF000B7FE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				944593E41F5A05AF000B7FE6 /* PBXTargetDependency */,
+			);
+			name = "Discovery Park of AmericaUITests";
+			productName = "Discovery Park of AmericaUITests";
+			productReference = 944593E21F5A05AF000B7FE6 /* Discovery Park of AmericaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		944593BB1F5A05AF000B7FE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Paul Gosser";
+				TargetAttributes = {
+					944593C21F5A05AF000B7FE6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FBYPB85QHL;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					944593D61F5A05AF000B7FE6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FBYPB85QHL;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 944593C21F5A05AF000B7FE6;
+					};
+					944593E11F5A05AF000B7FE6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FBYPB85QHL;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 944593C21F5A05AF000B7FE6;
+					};
+				};
+			};
+			buildConfigurationList = 944593BE1F5A05AF000B7FE6 /* Build configuration list for PBXProject "Discovery Park of America" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 944593BA1F5A05AF000B7FE6;
+			productRefGroup = 944593C41F5A05AF000B7FE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				944593C21F5A05AF000B7FE6 /* Discovery Park of America */,
+				944593D61F5A05AF000B7FE6 /* Discovery Park of AmericaTests */,
+				944593E11F5A05AF000B7FE6 /* Discovery Park of AmericaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		944593C11F5A05AF000B7FE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				944593D11F5A05AF000B7FE6 /* LaunchScreen.storyboard in Resources */,
+				94C9BD771F6F13670053655F /* Assets.xcassets in Resources */,
+				944593CC1F5A05AF000B7FE6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		944593D51F5A05AF000B7FE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		944593E01F5A05AF000B7FE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		944593BF1F5A05AF000B7FE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B5BD7E1F62EF800015AB33 /* DescriptionViewController.swift in Sources */,
+				9406B9501F86C2BB008F328A /* LibraryCell.swift in Sources */,
+				94C42BE51F5F479800736AC6 /* MapViewController.swift in Sources */,
+				944593C71F5A05AF000B7FE6 /* AppDelegate.swift in Sources */,
+				94BA06591F6C25DE00822402 /* Item.swift in Sources */,
+				94BA06551F6C249100822402 /* LibraryViewController.swift in Sources */,
+				94BA065B1F6C278C00822402 /* ItemStore.swift in Sources */,
+				94C42BE71F5F4B3300736AC6 /* WebViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		944593D31F5A05AF000B7FE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				944593DC1F5A05AF000B7FE6 /* Discovery_Park_of_AmericaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		944593DE1F5A05AF000B7FE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				944593E71F5A05AF000B7FE6 /* Discovery_Park_of_AmericaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		944593D91F5A05AF000B7FE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 944593C21F5A05AF000B7FE6 /* Discovery Park of America */;
+			targetProxy = 944593D81F5A05AF000B7FE6 /* PBXContainerItemProxy */;
+		};
+		944593E41F5A05AF000B7FE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 944593C21F5A05AF000B7FE6 /* Discovery Park of America */;
+			targetProxy = 944593E31F5A05AF000B7FE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		944593CA1F5A05AF000B7FE6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				944593CB1F5A05AF000B7FE6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		944593CF1F5A05AF000B7FE6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				944593D01F5A05AF000B7FE6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		944593E91F5A05AF000B7FE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		944593EA1F5A05AF000B7FE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		944593EC1F5A05AF000B7FE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Discovery Park of America/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Gosser.Discovery-Park-of-America";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		944593ED1F5A05AF000B7FE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Discovery Park of America/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Gosser.Discovery-Park-of-America";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		944593EF1F5A05AF000B7FE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Discovery Park of AmericaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Gosser.Discovery-Park-of-AmericaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Discovery Park of America.app/Discovery Park of America";
+			};
+			name = Debug;
+		};
+		944593F01F5A05AF000B7FE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Discovery Park of AmericaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Gosser.Discovery-Park-of-AmericaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Discovery Park of America.app/Discovery Park of America";
+			};
+			name = Release;
+		};
+		944593F21F5A05AF000B7FE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Discovery Park of AmericaUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Gosser.Discovery-Park-of-AmericaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = "Discovery Park of America";
+			};
+			name = Debug;
+		};
+		944593F31F5A05AF000B7FE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Discovery Park of AmericaUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Gosser.Discovery-Park-of-AmericaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = "Discovery Park of America";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		944593BE1F5A05AF000B7FE6 /* Build configuration list for PBXProject "Discovery Park of America" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				944593E91F5A05AF000B7FE6 /* Debug */,
+				944593EA1F5A05AF000B7FE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		944593EB1F5A05AF000B7FE6 /* Build configuration list for PBXNativeTarget "Discovery Park of America" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				944593EC1F5A05AF000B7FE6 /* Debug */,
+				944593ED1F5A05AF000B7FE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		944593EE1F5A05AF000B7FE6 /* Build configuration list for PBXNativeTarget "Discovery Park of AmericaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				944593EF1F5A05AF000B7FE6 /* Debug */,
+				944593F01F5A05AF000B7FE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		944593F11F5A05AF000B7FE6 /* Build configuration list for PBXNativeTarget "Discovery Park of AmericaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				944593F21F5A05AF000B7FE6 /* Debug */,
+				944593F31F5A05AF000B7FE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 944593BB1F5A05AF000B7FE6 /* Project object */;
+}
