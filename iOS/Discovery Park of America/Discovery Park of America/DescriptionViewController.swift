@@ -24,6 +24,11 @@ class DescriptionViewController: UIViewController {
         infoText.text = item.info
         self.view.backgroundColor = UIColor(patternImage: item.image)
         
+        //infoText.contentSize.height = 1000
+        infoText.translatesAutoresizingMaskIntoConstraints = true
+        infoText.sizeToFit()
+        infoText.isScrollEnabled = true
+        
 //        let scrollView = UIScrollView(frame: view.bounds)
 //        scrollView.contentSize = infoText.bounds.size
 //        scrollView.addSubview(infoText)
