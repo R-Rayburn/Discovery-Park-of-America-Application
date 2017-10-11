@@ -24,12 +24,10 @@ class DescriptionViewController: UIViewController {
         infoText.text = item.info
         self.view.backgroundColor = UIColor(patternImage: item.image)
         
-//        let scrollView = UIScrollView(frame: view.bounds)
-//        scrollView.contentSize = infoText.bounds.size
-//        scrollView.addSubview(infoText)
-//        view.addSubview(scrollView)
+        infoText.translatesAutoresizingMaskIntoConstraints = true
+        infoText.isScrollEnabled = true
+        infoText.showsVerticalScrollIndicator = false
         
-        //bgImage.alpha = 0.4
     }
 
 }
