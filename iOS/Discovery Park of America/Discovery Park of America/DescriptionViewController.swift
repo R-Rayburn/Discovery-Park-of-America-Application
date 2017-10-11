@@ -31,6 +31,7 @@ class DescriptionViewController: UIViewController {
         //infoText.contentOffset.y = 50
         //infoText.contentInset = UIEdgeInsetsMake(0, 10.0, 0, 10.0)
         infoText.isScrollEnabled = true
+        infoText.showsVerticalScrollIndicator = false
         
         
         //bgImage.alpha = 0.4
