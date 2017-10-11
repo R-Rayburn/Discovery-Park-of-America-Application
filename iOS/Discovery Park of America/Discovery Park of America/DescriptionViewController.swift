@@ -24,17 +24,10 @@ class DescriptionViewController: UIViewController {
         infoText.text = item.info
         self.view.backgroundColor = UIColor(patternImage: item.image)
         
-        //infoText.contentSize.height = 1000
         infoText.translatesAutoresizingMaskIntoConstraints = true
-        //infoText.sizeToFit()
-        //infoText.contentOffset.x = 50
-        //infoText.contentOffset.y = 50
-        //infoText.contentInset = UIEdgeInsetsMake(0, 10.0, 0, 10.0)
         infoText.isScrollEnabled = true
         infoText.showsVerticalScrollIndicator = false
         
-        
-        //bgImage.alpha = 0.4
     }
 
 }
