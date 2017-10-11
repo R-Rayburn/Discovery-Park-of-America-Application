@@ -26,13 +26,12 @@ class DescriptionViewController: UIViewController {
         
         //infoText.contentSize.height = 1000
         infoText.translatesAutoresizingMaskIntoConstraints = true
-        infoText.sizeToFit()
+        //infoText.sizeToFit()
+        //infoText.contentOffset.x = 50
+        //infoText.contentOffset.y = 50
+        //infoText.contentInset = UIEdgeInsetsMake(0, 10.0, 0, 10.0)
         infoText.isScrollEnabled = true
         
-//        let scrollView = UIScrollView(frame: view.bounds)
-//        scrollView.contentSize = infoText.bounds.size
-//        scrollView.addSubview(infoText)
-//        view.addSubview(scrollView)
         
         //bgImage.alpha = 0.4
     }
