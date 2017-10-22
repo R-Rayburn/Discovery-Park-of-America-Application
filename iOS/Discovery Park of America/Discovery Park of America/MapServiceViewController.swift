@@ -19,6 +19,19 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         mapView.delegate = self
         locationManager = CLLocationManager()
         
+        // https://www.youtube.com/watch?v=hRextIKJCnI
+        let span = MKCoordinateSpanMake(10, 10)
+        let location = CLLocationCoordinate2DMake(37.785834 + 0.0001, -122.406417)
+        let region = MKCoordinateRegionMake(location, span)
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = location
+        annotation.title = "TEST"
+        annotation.subtitle = "Exhibit is here"
+        mapView.addAnnotation(annotation)
+        
         print("MapViewController loaded its view.")
     }
     
@@ -97,6 +110,9 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         //This is a method from MKMapViewDelegate, fires up when the user`s location changes
+        
+        print(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+        
         let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 500, 500)
         mapView.setRegion(zoomedInCurrentLocation, animated: true)
         
