@@ -12,8 +12,9 @@ class DescriptionViewController: UIViewController {
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var infoText: UITextView!
+    @IBOutlet var imageView: UIImageView!
     var item: Item!
-    //@IBOutlet var bgImage: UIImageView!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,12 +23,14 @@ class DescriptionViewController: UIViewController {
                 
         nameLabel.text = item.name
         infoText.text = item.info
-        self.view.backgroundColor = UIColor(patternImage: item.image)
+        //self.view.backgroundColor = UIColor(patternImage: item.image)
+        imageView.image = item.image
         
         infoText.translatesAutoresizingMaskIntoConstraints = true
         infoText.isScrollEnabled = true
         infoText.showsVerticalScrollIndicator = false
         
+        //infoText.layer.borderWidth = 5.0
     }
 
 }

@@ -17,6 +17,7 @@
 		94BA06551F6C249100822402 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA06541F6C249100822402 /* LibraryViewController.swift */; };
 		94BA06591F6C25DE00822402 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA06581F6C25DE00822402 /* Item.swift */; };
 		94BA065B1F6C278C00822402 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA065A1F6C278C00822402 /* ItemStore.swift */; };
+		94C025801F9D0DAF0029E083 /* MapServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C0257F1F9D0DAF0029E083 /* MapServiceViewController.swift */; };
 		94C42BE31F5F437400736AC6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C42BE21F5F437400736AC6 /* MapKit.framework */; };
 		94C42BE51F5F479800736AC6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C42BE41F5F479800736AC6 /* MapViewController.swift */; };
 		94C42BE71F5F4B3300736AC6 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C42BE61F5F4B3300736AC6 /* WebViewController.swift */; };
@@ -57,6 +58,7 @@
 		94BA06541F6C249100822402 /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = ../LibraryViewController.swift; sourceTree = "<group>"; };
 		94BA06581F6C25DE00822402 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
 		94BA065A1F6C278C00822402 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		94C0257F1F9D0DAF0029E083 /* MapServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapServiceViewController.swift; sourceTree = "<group>"; };
 		94C42BE21F5F437400736AC6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		94C42BE41F5F479800736AC6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
 		94C42BE61F5F4B3300736AC6 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				944593C61F5A05AF000B7FE6 /* AppDelegate.swift */,
 				94C42BE41F5F479800736AC6 /* MapViewController.swift */,
+				94C0257F1F9D0DAF0029E083 /* MapServiceViewController.swift */,
 				94C42BE61F5F4B3300736AC6 /* WebViewController.swift */,
 				94BA06541F6C249100822402 /* LibraryViewController.swift */,
 				94B5BD7D1F62EF800015AB33 /* DescriptionViewController.swift */,
@@ -303,6 +306,7 @@
 				94BA06551F6C249100822402 /* LibraryViewController.swift in Sources */,
 				94BA065B1F6C278C00822402 /* ItemStore.swift in Sources */,
 				94C42BE71F5F4B3300736AC6 /* WebViewController.swift in Sources */,
+				94C025801F9D0DAF0029E083 /* MapServiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Discovery Park of America/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Gosser.Discovery-Park-of-America";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -489,6 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Discovery Park of America/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Gosser.Discovery-Park-of-America";
 				PRODUCT_NAME = "$(TARGET_NAME)";
