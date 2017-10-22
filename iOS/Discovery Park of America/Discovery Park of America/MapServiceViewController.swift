@@ -12,25 +12,30 @@ import MapKit
 class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
+    var first = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         mapView.delegate = self
         locationManager = CLLocationManager()
         
+        locationManager?.requestWhenInUseAuthorization()
+        mapView.showsUserLocation = true
+        
         // https://www.youtube.com/watch?v=hRextIKJCnI
-        let span = MKCoordinateSpanMake(10, 10)
-        let location = CLLocationCoordinate2DMake(37.785834 + 0.0001, -122.406417)
-        let region = MKCoordinateRegionMake(location, span)
-        mapView.setRegion(region, animated: true)
+        //let span = MKCoordinateSpanMake(10, 10)
         
-        let annotation = MKPointAnnotation()
-        
-        annotation.coordinate = location
-        annotation.title = "TEST"
-        annotation.subtitle = "Exhibit is here"
-        mapView.addAnnotation(annotation)
+//        let location = CLLocationCoordinate2DMake(lat + 0.0001, lon)
+//        //let region = MKCoordinateRegionMake(location, span)
+//        //mapView.setRegion(region, animated: true)
+//
+//        let annotation = MKPointAnnotation()
+//
+//        annotation.coordinate = location
+//        annotation.title = "TEST"
+//        annotation.subtitle = "Exhibit is here"
+//        mapView.addAnnotation(annotation)
         
         print("MapViewController loaded its view.")
     }
@@ -65,7 +70,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
-        initLocalizationButton(segmentedControl)
+        //initLocalizationButton(segmentedControl)
     }
     
     
@@ -82,31 +87,31 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         }
     }
     
-    func initLocalizationButton(_ anyView: UIView!){
-        let localizationButton = UIButton.init(type: .system)
-        localizationButton.setTitle("Localization", for: .normal)
-        localizationButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(localizationButton)
-        
-        //Constraints
-        
-        let topConstraint = localizationButton.topAnchor.constraint(equalTo:anyView
-            .topAnchor, constant: 32)
-        let leadingConstraint = localizationButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
-        let trailingConstraint = localizationButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
-        
-        topConstraint.isActive = true
-        leadingConstraint.isActive = true
-        trailingConstraint.isActive = true
-        
-        localizationButton.addTarget(self, action: #selector(MapServiceViewController.showLocalization(sender:)), for: .touchUpInside)
-    }
+//    func initLocalizationButton(_ anyView: UIView!){
+//        let localizationButton = UIButton.init(type: .system)
+//        localizationButton.setTitle("Localization", for: .normal)
+//        localizationButton.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(localizationButton)
+//
+//        //Constraints
+//
+//        let topConstraint = localizationButton.topAnchor.constraint(equalTo:anyView
+//            .topAnchor, constant: 32)
+//        let leadingConstraint = localizationButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
+//        let trailingConstraint = localizationButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+//
+//        topConstraint.isActive = true
+//        leadingConstraint.isActive = true
+//        trailingConstraint.isActive = true
+//
+//        localizationButton.addTarget(self, action: #selector(MapServiceViewController.showLocalization(sender:)), for: .touchUpInside)
+//    }
     
-    @objc func showLocalization(sender: UIButton!){
-        locationManager?.requestWhenInUseAuthorization()
-        mapView.showsUserLocation = true //fire up the method mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation)
-        print("FIRED UP USER LOCATION")
-    }
+//    @objc func showLocalization(sender: UIButton!){
+//        locationManager?.requestWhenInUseAuthorization()
+//        mapView.showsUserLocation = true //fire up the method mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation)
+//        print("FIRED UP USER LOCATION")
+//    }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         //This is a method from MKMapViewDelegate, fires up when the user`s location changes
@@ -116,6 +121,18 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 500, 500)
         mapView.setRegion(zoomedInCurrentLocation, animated: true)
         
+        if first {
+            let location = CLLocationCoordinate2DMake(userLocation.coordinate.latitude + 0.0001, userLocation.coordinate.longitude)
+            
+            let annotation = MKPointAnnotation()
+            
+            annotation.coordinate = location
+            annotation.title = "TEST"
+            annotation.subtitle = "Exhibit is here"
+            mapView.addAnnotation(annotation)
+        }
+        
         print("ZOOMED IN")
+        first = false
     }
 }
