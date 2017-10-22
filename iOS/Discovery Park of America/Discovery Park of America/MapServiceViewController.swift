@@ -16,7 +16,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         mapView.delegate = self
         locationManager = CLLocationManager()
         
@@ -118,7 +118,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         print(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
         
-        let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 500, 500)
+        let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 80, 80)
         mapView.setRegion(zoomedInCurrentLocation, animated: true)
         
         if first {
