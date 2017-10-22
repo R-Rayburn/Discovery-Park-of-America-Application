@@ -13,6 +13,15 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        mapView.delegate = self
+        locationManager = CLLocationManager()
+        
+        print("MapViewController loaded its view.")
+    }
+    
     override func loadView() {
         // Create a map view
         mapView = MKMapView()
