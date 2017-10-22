@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapServiceViewController: UIViewController {
+class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
     
@@ -83,11 +83,14 @@ class MapServiceViewController: UIViewController {
     @objc func showLocalization(sender: UIButton!){
         locationManager?.requestWhenInUseAuthorization()
         mapView.showsUserLocation = true //fire up the method mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation)
+        print("FIRED UP USER LOCATION")
     }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         //This is a method from MKMapViewDelegate, fires up when the user`s location changes
         let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 500, 500)
         mapView.setRegion(zoomedInCurrentLocation, animated: true)
+        
+        print("ZOOMED IN")
     }
 }
