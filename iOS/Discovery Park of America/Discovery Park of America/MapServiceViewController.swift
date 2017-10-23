@@ -12,6 +12,7 @@ import MapKit
 class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
+    var itemStore: ItemStore!
     var first = true
     
     override func viewDidLoad() {
@@ -103,6 +104,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         let diffThreshold = 0.0002
         if diffLat < diffThreshold, diffLon < diffThreshold {
             print("YOU DID IT!!!")
+            self.performSegue(withIdentifier: "mapDescription", sender: nil)
         }
         
         let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 80, 80)
@@ -121,6 +123,18 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         print("ZOOMED IN")
         first = false
+    }
+    
+    // MARK:- Segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "mapDescription"?:
+            let item = itemStore.allItems[0]
+            let descriptionViewController = segue.destination as! DescriptionViewController
+            descriptionViewController.item = item
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
     }
     
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

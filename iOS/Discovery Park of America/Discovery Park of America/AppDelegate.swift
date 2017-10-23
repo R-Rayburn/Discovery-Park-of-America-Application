@@ -25,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let libraryController = navController.topViewController as! LibraryViewController
         libraryController.itemStore = itemStore
         
+        //let mapServController = tabController.viewControllers?[3] as! MapServiceViewController
+        let navController2 = tabController.viewControllers?[3] as! UINavigationController
+        let mapServController = navController2.topViewController as! MapServiceViewController
+        mapServController.itemStore = itemStore
+        
         return true
     }
 
