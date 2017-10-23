@@ -12,6 +12,7 @@ import MapKit
 class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     var mapView: MKMapView!
     var locationManager: CLLocationManager?
+    var itemStore: ItemStore!
     var first = true
     
     override func viewDidLoad() {
@@ -20,8 +21,12 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         mapView.delegate = self
         locationManager = CLLocationManager()
         
+        // unsure
+        // https://www.pubnub.com/blog/2015-05-05-getting-started-ios-location-tracking-and-streaming-w-swift-programming-language/
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.requestWhenInUseAuthorization()
         mapView.showsUserLocation = true
+        locationManager?.startUpdatingLocation()
         
         // https://www.youtube.com/watch?v=hRextIKJCnI
         //let span = MKCoordinateSpanMake(10, 10)
@@ -87,42 +92,26 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         }
     }
     
-//    func initLocalizationButton(_ anyView: UIView!){
-//        let localizationButton = UIButton.init(type: .system)
-//        localizationButton.setTitle("Localization", for: .normal)
-//        localizationButton.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(localizationButton)
-//
-//        //Constraints
-//
-//        let topConstraint = localizationButton.topAnchor.constraint(equalTo:anyView
-//            .topAnchor, constant: 32)
-//        let leadingConstraint = localizationButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
-//        let trailingConstraint = localizationButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
-//
-//        topConstraint.isActive = true
-//        leadingConstraint.isActive = true
-//        trailingConstraint.isActive = true
-//
-//        localizationButton.addTarget(self, action: #selector(MapServiceViewController.showLocalization(sender:)), for: .touchUpInside)
-//    }
-    
-//    @objc func showLocalization(sender: UIButton!){
-//        locationManager?.requestWhenInUseAuthorization()
-//        mapView.showsUserLocation = true //fire up the method mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation)
-//        print("FIRED UP USER LOCATION")
-//    }
-    
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         //This is a method from MKMapViewDelegate, fires up when the user`s location changes
         
         print(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+        let annonCoLat = userLocation.coordinate.latitude + 0.0001
+        let annonCoLon = userLocation.coordinate.longitude
+        
+        let diffLat = abs(userLocation.coordinate.latitude - annonCoLat)
+        let diffLon = abs(userLocation.coordinate.longitude - annonCoLon)
+        let diffThreshold = 0.0002
+        if diffLat < diffThreshold, diffLon < diffThreshold {
+            print("YOU DID IT!!!")
+            self.performSegue(withIdentifier: "mapDescription", sender: nil)
+        }
         
         let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 80, 80)
         mapView.setRegion(zoomedInCurrentLocation, animated: true)
         
         if first {
-            let location = CLLocationCoordinate2DMake(userLocation.coordinate.latitude + 0.0001, userLocation.coordinate.longitude)
+            let location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
             
             let annotation = MKPointAnnotation()
             
@@ -135,4 +124,42 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         print("ZOOMED IN")
         first = false
     }
+    
+    // MARK:- Segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "mapDescription"?:
+            let item = itemStore.allItems[0]
+            let descriptionViewController = segue.destination as! DescriptionViewController
+            descriptionViewController.item = item
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
+    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        // https://www.innofied.com/implement-location-tracking-using-mapkit-in-swift/
+//        print(#function)
+//        if let oldLocationNew = locations.first as CLLocation?{
+//            let oldCoordinates = oldLocationNew.coordinate
+//            let newCoordinates = locations.last?.coordinate
+//            let oldC = MKMapPointMake(oldCoordinates.latitude, oldCoordinates.longitude)
+//            let newC = MKMapPointMake((newCoordinates?.latitude)!, (newCoordinates?.longitude)!)
+//            let area = [oldC, newC]
+//            let polyline = MKPolyline(points: area, count: area.count)
+//            mapView.add(polyline)
+//        }
+//    }
+//
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        print(#function)
+//        let pr = MKPolylineRenderer(overlay: overlay)
+//        if (overlay is MKPolyline) {
+//            pr.strokeColor = UIColor.red
+//            pr.lineWidth = 5
+//            return pr
+//        }
+//
+//        return pr
+//    }
 }
