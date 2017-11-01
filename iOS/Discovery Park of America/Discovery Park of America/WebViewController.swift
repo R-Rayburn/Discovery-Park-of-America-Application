@@ -22,7 +22,10 @@ class WebViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myURL = URL(string: "https://webstore1.centaman.net/discoveryparkofamerica/Logout/LoginViewProfile/tabid/61/Default.aspx")
+        let url1 = "https://api.geohopper.com/statusboard/paumgoss%40ut.utm.edu/ezjyfoajyhlqgcahhvvkevteulhlkliyeeujamus?timeoffset=-5"
+        let url3 = "feed://api.geohopper.com/rss/paumgoss%40ut.utm.edu/juztgnpuhpjtlfrtubhvbmqpjkwvfnbnirnbhwld"
+        let url2 = "https://webstore1.centaman.net/discoveryparkofamerica/Logout/LoginViewProfile/tabid/61/Default.aspx"
+        let myURL = URL(string: url1)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
         
