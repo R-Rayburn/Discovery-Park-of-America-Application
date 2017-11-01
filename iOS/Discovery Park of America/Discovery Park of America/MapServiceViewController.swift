@@ -139,7 +139,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         let diffX = abs(location.x - point.x)
         let diffY = abs(location.y - point.y)
-        if diffX < 10.0, diffY < 10.0{
+        if diffX < 25.0, diffY < 25.0{
             print("TOUCHED ANNOTATION")
             performSegue(withIdentifier: "mapDescription", sender: nil)
         }
