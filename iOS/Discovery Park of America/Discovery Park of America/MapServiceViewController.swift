@@ -14,8 +14,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var locationManager: CLLocationManager?
     var itemStore: ItemStore!
     var first = true
-    var annonCoLat = 1.0
-    var annonCoLon = 1.0
+    var annotations = [CLLocationCoordinate2D]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,65 +82,79 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         //This is a method from MKMapViewDelegate, fires up when the user`s location changes
         
-        print(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-        annonCoLat = userLocation.coordinate.latitude + 0.0001
-        annonCoLon = userLocation.coordinate.longitude
-        
-        let diffLat = abs(userLocation.coordinate.latitude - annonCoLat)
-        let diffLon = abs(userLocation.coordinate.longitude - annonCoLon)
-        let diffThreshold = 0.0002
-        if diffLat < diffThreshold, diffLon < diffThreshold, first {
-            print("YOU DID IT!!!")
-            self.performSegue(withIdentifier: "mapDescription", sender: nil)
-        }
-        
-        let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 80, 80)
-        mapView.setRegion(zoomedInCurrentLocation, animated: true)
-        
+        //print(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+                
+        // These are test locations for exhibits on map.
         if first {
-            let location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
+            let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 100, 100)
+            mapView.setRegion(zoomedInCurrentLocation, animated: true)
             
-            let annotation = MKPointAnnotation()
+            // Coordinates for annotations to be tested.
+            var annonCoLat = userLocation.coordinate.latitude + 0.0001
+            var annonCoLon = userLocation.coordinate.longitude
+            var location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
+            annotations.append(location)
+            annonCoLat = userLocation.coordinate.latitude
+            annonCoLon = userLocation.coordinate.longitude + 0.0001
+            location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
+            annotations.append(location)
+            annonCoLat = userLocation.coordinate.latitude
+            annonCoLon = userLocation.coordinate.longitude - 0.0001
+            location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
+            annotations.append(location)
             
-            annotation.coordinate = location
-            annotation.title = "TEST"
-            annotation.subtitle = "Exhibit is here"
-            mapView.addAnnotation(annotation)
+            for (idx, loc) in annotations.enumerated(){
+                let annotation = MKPointAnnotation()
+                
+                annotation.coordinate = loc
+                annotation.title = itemStore.allItems[idx].name
+                annotation.subtitle = "Click to see exhibit info."
+                mapView.addAnnotation(annotation)
+            }
+            
+            let diffLat = abs(userLocation.coordinate.latitude - annonCoLat)
+            let diffLon = abs(userLocation.coordinate.longitude - annonCoLon)
+            let diffThreshold = 0.0002
+            if diffLat < diffThreshold, diffLon < diffThreshold{
+                print("YOU DID IT!!!")
+                self.performSegue(withIdentifier: "mapDescription", sender: nil)
+            }
         }
-        
-        print("ZOOMED IN")
         first = false
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // https://www.youtube.com/watch?v=hRextIKJCnI
-        let reuseIdentifier = "annotationView"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKPinAnnotationView
-        if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            //annotationView?.tintColor = .green                // do whatever customization you want
-            //annotationView?.canShowCallout = false            // but turn off callout
-        } else {
-            annotationView?.annotation = annotation
-            performSegue(withIdentifier: "mapDescription", sender: nil)
-        }
-        
-        return annotationView
-    }
-    
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        // https://www.youtube.com/watch?v=hRextIKJCnI
+//        let reuseIdentifier = "annotationView"
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKPinAnnotationView
+//        if annotationView == nil {
+//            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+//            //annotationView?.tintColor = .green                // do whatever customization you want
+//            //annotationView?.canShowCallout = false            // but turn off callout
+//        } else {
+//            annotationView?.annotation = annotation
+//            performSegue(withIdentifier: "mapDescription", sender: nil)
+//        }
+//
+//        return annotationView
+//    }
+//
     //MARK:- Touch events
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self.view)
         
-        let mapLoc = CLLocationCoordinate2D(latitude: annonCoLat, longitude: annonCoLon)
-        let point = mapView.convert(mapLoc, toPointTo: mapView)
-        
-        let diffX = abs(location.x - point.x)
-        let diffY = abs(location.y - point.y)
-        if diffX < 25.0, diffY < 25.0{
-            print("TOUCHED ANNOTATION")
-            performSegue(withIdentifier: "mapDescription", sender: nil)
+        print("SIZE: ", annotations.count)
+        for (idx, loc) in annotations.enumerated(){
+            let mapLoc = CLLocationCoordinate2D(latitude: loc.latitude, longitude: loc.longitude)
+            let point = mapView.convert(mapLoc, toPointTo: mapView)
+            
+            let diffX = abs(location.x - point.x)
+            let diffY = abs(location.y - point.y)
+            if diffX < 25.0, diffY < 25.0{
+                print("TOUCHED ANNOTATION")
+                performSegue(withIdentifier: "mapDescription", sender: idx)
+            }
         }
     }
     
@@ -149,9 +162,17 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "mapDescription"?:
-            let item = itemStore.allItems[0]
+            var idx: Int
+            if let i = sender as! Int?{
+                idx = i
+            } else{
+                idx = 0
+            }
+            print("IDX: ", idx)
+            let item = itemStore.allItems[idx]
             let descriptionViewController = segue.destination as! DescriptionViewController
             descriptionViewController.item = item
+            
         default:
             preconditionFailure("Unexpected segue identifier.")
         }
