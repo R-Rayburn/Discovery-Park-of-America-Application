@@ -104,8 +104,8 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
             let annotation = MKPointAnnotation()
             
             annotation.coordinate = location
-            annotation.title = "TEST"
-            annotation.subtitle = "Exhibit is here"
+            annotation.title = itemStore.allItems[0].name
+            annotation.subtitle = "Click to see exhibit info."
             mapView.addAnnotation(annotation)
         }
         
@@ -113,22 +113,22 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         first = false
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // https://www.youtube.com/watch?v=hRextIKJCnI
-        let reuseIdentifier = "annotationView"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKPinAnnotationView
-        if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            //annotationView?.tintColor = .green                // do whatever customization you want
-            //annotationView?.canShowCallout = false            // but turn off callout
-        } else {
-            annotationView?.annotation = annotation
-            performSegue(withIdentifier: "mapDescription", sender: nil)
-        }
-        
-        return annotationView
-    }
-    
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        // https://www.youtube.com/watch?v=hRextIKJCnI
+//        let reuseIdentifier = "annotationView"
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKPinAnnotationView
+//        if annotationView == nil {
+//            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+//            //annotationView?.tintColor = .green                // do whatever customization you want
+//            //annotationView?.canShowCallout = false            // but turn off callout
+//        } else {
+//            annotationView?.annotation = annotation
+//            performSegue(withIdentifier: "mapDescription", sender: nil)
+//        }
+//
+//        return annotationView
+//    }
+//
     //MARK:- Touch events
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
