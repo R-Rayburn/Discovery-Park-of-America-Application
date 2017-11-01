@@ -82,13 +82,13 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         //This is a method from MKMapViewDelegate, fires up when the user`s location changes
         
-        print(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-        
-        let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 100, 100)
-        mapView.setRegion(zoomedInCurrentLocation, animated: true)
-        
+        //print(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+                
         // These are test locations for exhibits on map.
         if first {
+            let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 100, 100)
+            mapView.setRegion(zoomedInCurrentLocation, animated: true)
+            
             // Coordinates for annotations to be tested.
             var annonCoLat = userLocation.coordinate.latitude + 0.0001
             var annonCoLon = userLocation.coordinate.longitude
