@@ -30,20 +30,6 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         mapView.showsUserLocation = true
         locationManager?.startUpdatingLocation()
         
-        // https://www.youtube.com/watch?v=hRextIKJCnI
-        //let span = MKCoordinateSpanMake(10, 10)
-        
-//        let location = CLLocationCoordinate2DMake(lat + 0.0001, lon)
-//        //let region = MKCoordinateRegionMake(location, span)
-//        //mapView.setRegion(region, animated: true)
-//
-//        let annotation = MKPointAnnotation()
-//
-//        annotation.coordinate = location
-//        annotation.title = "TEST"
-//        annotation.subtitle = "Exhibit is here"
-//        mapView.addAnnotation(annotation)
-        
         print("MapViewController loaded its view.")
     }
     
@@ -128,6 +114,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // https://www.youtube.com/watch?v=hRextIKJCnI
         let reuseIdentifier = "annotationView"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKPinAnnotationView
         if annotationView == nil {
