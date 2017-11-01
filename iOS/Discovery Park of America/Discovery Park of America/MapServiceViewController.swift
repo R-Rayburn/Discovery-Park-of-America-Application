@@ -14,8 +14,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var locationManager: CLLocationManager?
     var itemStore: ItemStore!
     var first = true
-    var annonCoLat = 1.0
-    var annonCoLon = 1.0
+    var annotations = [CLLocationCoordinate2D]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,8 +83,20 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         //This is a method from MKMapViewDelegate, fires up when the user`s location changes
         
         print(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-        annonCoLat = userLocation.coordinate.latitude + 0.0001
-        annonCoLon = userLocation.coordinate.longitude
+        
+        // Coordinates for annotations to be tested.
+        var annonCoLat = userLocation.coordinate.latitude + 0.0001
+        var annonCoLon = userLocation.coordinate.longitude
+        var location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
+        annotations.append(location)
+        annonCoLat = userLocation.coordinate.latitude
+        annonCoLon = userLocation.coordinate.longitude + 0.0001
+        location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
+        annotations.append(location)
+        annonCoLat = userLocation.coordinate.latitude
+        annonCoLon = userLocation.coordinate.longitude - 0.0001
+        location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
+        annotations.append(location)
         
         let diffLat = abs(userLocation.coordinate.latitude - annonCoLat)
         let diffLon = abs(userLocation.coordinate.longitude - annonCoLon)
@@ -98,18 +109,19 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         let zoomedInCurrentLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 80, 80)
         mapView.setRegion(zoomedInCurrentLocation, animated: true)
         
+        // These are test locations for exhibits on map.
         if first {
-            let location = CLLocationCoordinate2DMake(annonCoLat, annonCoLon)
-            
-            let annotation = MKPointAnnotation()
-            
-            annotation.coordinate = location
-            annotation.title = itemStore.allItems[0].name
-            annotation.subtitle = "Click to see exhibit info."
-            mapView.addAnnotation(annotation)
+            var i = 0
+            for loc in annotations{
+                let annotation = MKPointAnnotation()
+                
+                annotation.coordinate = loc
+                annotation.title = itemStore.allItems[i].name
+                annotation.subtitle = "Click to see exhibit info."
+                mapView.addAnnotation(annotation)
+                i += 1
+            }
         }
-        
-        print("ZOOMED IN")
         first = false
     }
     
@@ -134,14 +146,18 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         let touch = touches.first!
         let location = touch.location(in: self.view)
         
-        let mapLoc = CLLocationCoordinate2D(latitude: annonCoLat, longitude: annonCoLon)
-        let point = mapView.convert(mapLoc, toPointTo: mapView)
-        
-        let diffX = abs(location.x - point.x)
-        let diffY = abs(location.y - point.y)
-        if diffX < 25.0, diffY < 25.0{
-            print("TOUCHED ANNOTATION")
-            performSegue(withIdentifier: "mapDescription", sender: nil)
+        var i = 0
+        for loc in annotations{
+            let mapLoc = CLLocationCoordinate2D(latitude: loc.latitude, longitude: loc.longitude)
+            let point = mapView.convert(mapLoc, toPointTo: mapView)
+            
+            let diffX = abs(location.x - point.x)
+            let diffY = abs(location.y - point.y)
+            if diffX < 25.0, diffY < 25.0{
+                print("TOUCHED ANNOTATION")
+                performSegue(withIdentifier: "mapDescription", sender: i)
+            }
+            i += 1
         }
     }
     
@@ -149,7 +165,13 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "mapDescription"?:
-            let item = itemStore.allItems[0]
+            var idx: Int
+            if let i = sender as! Int?{
+                idx = i
+            } else{
+                idx = 0
+            }
+            let item = itemStore.allItems[idx]
             let descriptionViewController = segue.destination as! DescriptionViewController
             descriptionViewController.item = item
         default:
