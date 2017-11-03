@@ -4,7 +4,7 @@
 //
 //  Created by Paul Gosser on 9/5/17.
 //  Copyright © 2017 Paul Gosser. All rights reserved.
-// WHat the heck is this crap test
+// WHat the heck is this crap test 2
 
 import UIKit
 import CoreLocation
@@ -14,26 +14,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.red
+        //self.view.backgroundColor = UIColor.red
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
         //locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-        startScanning()
+        //startScanning()
     }
     
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        print(#function)
-//
-//        if status == .authorizedAlways {
-//            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-//                if CLLocationManager.isRangingAvailable() {
-//                    startScanning()
-//                }
-//            }
-//        }
-//    }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print(#function)
+
+        if status == .authorizedWhenInUse {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    startScanning()
+                }
+            }
+        }
+    }
     
     func startScanning() {
         print(#function)
