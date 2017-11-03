@@ -14,30 +14,38 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = UIColor.red
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-    }
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    startScanning()
-                }
-            }
-        }
+        //locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        startScanning()
     }
     
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        print(#function)
+//
+//        if status == .authorizedAlways {
+//            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+//                if CLLocationManager.isRangingAvailable() {
+//                    startScanning()
+//                }
+//            }
+//        }
+//    }
+    
     func startScanning() {
+        print(#function)
         let uuid = UUID(uuidString: "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5")!
         let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: 123, minor: 456, identifier: "MyBeacon")
         
         locationManager.startMonitoring(for: beaconRegion)
         locationManager.startRangingBeacons(in: beaconRegion)
     }
+    
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        print(#function)
         if beacons.count > 0 {
             updateDistance(beacons[0].proximity)
         } else {
