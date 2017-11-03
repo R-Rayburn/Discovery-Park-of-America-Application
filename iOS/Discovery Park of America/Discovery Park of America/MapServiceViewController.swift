@@ -30,6 +30,7 @@ class MapServiceViewController: UIViewController, MKMapViewDelegate, CLLocationM
         locationManager?.startUpdatingLocation()
         
         print("MapViewController loaded its view.")
+        print("SIZE OF ITEMSTORE: ", itemStore.allItems.count)
     }
     
     override func loadView() {
