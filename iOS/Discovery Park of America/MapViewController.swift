@@ -9,10 +9,12 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .red
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
