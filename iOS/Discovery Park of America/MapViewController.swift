@@ -11,11 +11,9 @@ import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //self.view.backgroundColor = UIColor.red
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
