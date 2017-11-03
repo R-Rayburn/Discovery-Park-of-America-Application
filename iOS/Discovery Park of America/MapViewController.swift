@@ -11,6 +11,7 @@ import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,9 +19,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        //locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-        //startScanning()
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -37,8 +36,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func startScanning() {
         print(#function)
-        let uuid = UUID(uuidString: "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5")!
-        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: 123, minor: 456, identifier: "MyBeacon")
+        let uuid = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")!
+        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: 1, minor: 238, identifier: "MyBeacon")
         
         locationManager.startMonitoring(for: beaconRegion)
         locationManager.startRangingBeacons(in: beaconRegion)
